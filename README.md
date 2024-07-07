@@ -1,5 +1,5 @@
 # Installation
-If you don't have Go installed, download it from <a href="https://go.dev/dl/">here</a> or install it from your package manager. Then, run the command below:
+If you don't have Go installed, download it from <a href="https://go.dev/dl/">here</a> or install it from your package manager. Next:
 ```
 go install github.com/Picocrypt/CLI/picocrypt@latest
 ```
