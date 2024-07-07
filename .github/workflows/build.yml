@@ -25,21 +25,20 @@ jobs:
 
     - name: Install dependencies
       run: |
-        cd src
+        cd picocrypt
         go mod download
 
     - name: Build
       run: |
         cd src
-        GOOS=windows GOARCH=amd64 go build -v -ldflags="-s -w" -o picocrypt-windows-amd64.exe Picocrypt.go
-        GOOS=windows GOARCH=arm64 go build -v -ldflags="-s -w" -o picocrypt-windows-arm64.exe Picocrypt.go
-        GOOS=darwin GOARCH=amd64 go build -v -ldflags="-s -w" -o picocrypt-macos-amd64 Picocrypt.go
-        GOOS=darwin GOARCH=arm64 go build -v -ldflags="-s -w" -o picocrypt-macos-arm64 Picocrypt.go
-        GOOS=linux GOARCH=amd64 go build -v -ldflags="-s -w" -o picocrypt-linux-amd64 Picocrypt.go
-        GOOS=linux GOARCH=arm64 go build -v -ldflags="-s -w" -o picocrypt-linux-arm64 Picocrypt.go
+        GOOS=windows GOARCH=amd64 go build -v -ldflags="-s -w" -o picocrypt-windows-amd64.exe .
+        GOOS=windows GOARCH=arm64 go build -v -ldflags="-s -w" -o picocrypt-windows-arm64.exe .
+        GOOS=darwin GOARCH=amd64 go build -v -ldflags="-s -w" -o picocrypt-macos-amd64 .
+        GOOS=darwin GOARCH=arm64 go build -v -ldflags="-s -w" -o picocrypt-macos-arm64 .
+        GOOS=linux GOARCH=amd64 go build -v -ldflags="-s -w" -o picocrypt-linux-amd64 .
+        GOOS=linux GOARCH=arm64 go build -v -ldflags="-s -w" -o picocrypt-linux-arm64 .
       env:
-        CGO_ENABLED: 1
-        GOAMD64: v2
+        CGO_ENABLED: 0
 
     - name: Get version tag
       run: |
