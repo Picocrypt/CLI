@@ -5,7 +5,7 @@ go 1.22.3
 require (
 	github.com/HACKERALERT/infectious v0.0.0-20240424200929-b9ce72346a19
 	github.com/HACKERALERT/serpent v0.0.0-20210716182301-293b29869c66
-	github.com/schollz/progressbar/v3 v3.14.3
+	github.com/schollz/progressbar/v3 v3.14.4
 	golang.org/x/crypto v0.23.0
 	golang.org/x/term v0.20.0
 )
