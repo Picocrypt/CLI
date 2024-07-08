@@ -30,7 +30,7 @@ jobs:
 
     - name: Build
       run: |
-        cd src
+        cd picocrypt
         GOOS=windows GOARCH=amd64 go build -v -ldflags="-s -w" -o picocrypt-windows-amd64.exe .
         GOOS=windows GOARCH=arm64 go build -v -ldflags="-s -w" -o picocrypt-windows-arm64.exe .
         GOOS=darwin GOARCH=amd64 go build -v -ldflags="-s -w" -o picocrypt-macos-amd64 .
@@ -49,11 +49,11 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         files: |
-          picocrypt-windows-amd64.exe
-          picocrypt-windows-arm64.exe
-          picocrypt-macos-amd64
-          picocrypt-macos-arm64
-          picocrypt-linux-amd64
-          picocrypt-linux-arm64
+          picocrypt/picocrypt-windows-amd64.exe
+          picocrypt/picocrypt-windows-arm64.exe
+          picocrypt/picocrypt-macos-amd64
+          picocrypt/picocrypt-macos-arm64
+          picocrypt/picocrypt-linux-amd64
+          picocrypt/picocrypt-linux-arm64
         tag_name: ${{ env.VERSION }}
         make_latest: true
