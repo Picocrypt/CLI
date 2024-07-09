@@ -31,12 +31,16 @@ jobs:
     - name: Build
       run: |
         cd picocrypt
+        GOOS=windows GOARCH=386 go build -v -ldflags="-s -w" -o picocrypt-windows-386.exe .
         GOOS=windows GOARCH=amd64 go build -v -ldflags="-s -w" -o picocrypt-windows-amd64.exe .
         GOOS=windows GOARCH=arm64 go build -v -ldflags="-s -w" -o picocrypt-windows-arm64.exe .
         GOOS=darwin GOARCH=amd64 go build -v -ldflags="-s -w" -o picocrypt-macos-amd64 .
         GOOS=darwin GOARCH=arm64 go build -v -ldflags="-s -w" -o picocrypt-macos-arm64 .
+        GOOS=linux GOARCH=386 go build -v -ldflags="-s -w" -o picocrypt-linux-386 .
         GOOS=linux GOARCH=amd64 go build -v -ldflags="-s -w" -o picocrypt-linux-amd64 .
         GOOS=linux GOARCH=arm64 go build -v -ldflags="-s -w" -o picocrypt-linux-arm64 .
+        GOOS=linux GOARCH=riscv64 go build -v -ldflags="-s -w" -o picocrypt-linux-riscv64 .
+        GOOS=wasip1 GOARCH=wasm go build -v -ldflags="-s -w" -o picocrypt-wasip1.wasm .
       env:
         CGO_ENABLED: 0
 
@@ -49,11 +53,15 @@ jobs:
       uses: softprops/action-gh-release@v2
       with:
         files: |
+          picocrypt/picocrypt-windows-386.exe
           picocrypt/picocrypt-windows-amd64.exe
           picocrypt/picocrypt-windows-arm64.exe
           picocrypt/picocrypt-macos-amd64
           picocrypt/picocrypt-macos-arm64
+          picocrypt/picocrypt-linux-386
           picocrypt/picocrypt-linux-amd64
           picocrypt/picocrypt-linux-arm64
+          picocrypt/picocrypt-linux-riscv64
+          picocrypt/picocrypt-wasip1.wasm
         tag_name: ${{ env.VERSION }}
         make_latest: true
