@@ -18,8 +18,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/HACKERALERT/infectious"
-	"github.com/HACKERALERT/serpent"
+	"github.com/Picocrypt/infectious"
+	"github.com/Picocrypt/serpent"
 	"github.com/schollz/progressbar/v3"
 	"golang.org/x/crypto/argon2"
 	"golang.org/x/crypto/blake2b"
