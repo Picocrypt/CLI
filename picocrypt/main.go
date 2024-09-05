@@ -355,10 +355,18 @@ func work() int {
 			flags[4] = 1
 		}
 		_, errs[2] = fout.Write(rsEncode(rs5, flags))
-		rand.Read(salt)
-		rand.Read(hkdfSalt)
-		rand.Read(serpentIV)
-		rand.Read(nonce)
+		if _, err := rand.Read(salt); err != nil {
+			panic(err)
+		}
+		if _, err := rand.Read(hkdfSalt); err != nil {
+			panic(err)
+		}
+		if _, err := rand.Read(serpentIV); err != nil {
+			panic(err)
+		}
+		if _, err := rand.Read(nonce); err != nil {
+			panic(err)
+		}
 		_, errs[3] = fout.Write(rsEncode(rs16, salt))
 		_, errs[4] = fout.Write(rsEncode(rs32, hkdfSalt))
 		_, errs[5] = fout.Write(rsEncode(rs16, serpentIV))
