@@ -16,6 +16,7 @@ import (
 	"path/filepath"
 	"strconv"
 	"strings"
+	"runtime/debug"
 	"time"
 
 	"github.com/Picocrypt/infectious"
@@ -242,6 +243,7 @@ func compress() int {
 				return 1
 			}
 		}
+		debug.FreeOSMemory()
 	}
 	writer.Close()
 	file.Close()
@@ -439,6 +441,7 @@ func work() int {
 	} else {
 		key = argon2.IDKey(password, salt, 4, 1<<20, 4, 32)
 	}
+	debug.FreeOSMemory()
 	tmp := sha3.New512()
 	tmp.Write(key)
 	keyHash = tmp.Sum(nil)
@@ -593,6 +596,7 @@ func work() int {
 			serpent = cipher.NewCTR(s, serpentIV)
 			counter = 0
 		}
+		debug.FreeOSMemory()
 	}
 
 	if mode == "encrypt" {
