@@ -5,7 +5,7 @@ go 1.22.3
 require (
 	github.com/Picocrypt/infectious v0.0.0-20240830233326-3a050f65f9ec
 	github.com/Picocrypt/serpent v0.0.0-20240830233833-9ad6ab254fd7
-	github.com/schollz/progressbar/v3 v3.17.1
+	github.com/schollz/progressbar/v3 v3.18.0
 	golang.org/x/crypto v0.32.0
 	golang.org/x/term v0.28.0
 )
