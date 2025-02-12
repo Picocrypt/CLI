@@ -14,9 +14,9 @@ import (
 	"os"
 	"os/signal"
 	"path/filepath"
+	"runtime/debug"
 	"strconv"
 	"strings"
-	"runtime/debug"
 	"time"
 
 	"github.com/Picocrypt/infectious"
@@ -344,7 +344,7 @@ func work() int {
 		hkdfSalt = make([]byte, 32)
 		serpentIV = make([]byte, 16)
 		nonce = make([]byte, 24)
-		_, errs[0] = fout.Write(rsEncode(rs5, []byte("v1.45")))
+		_, errs[0] = fout.Write(rsEncode(rs5, []byte("v1.46")))
 		_, errs[1] = fout.Write(rsEncode(rs5, []byte("00000")))
 		flags := make([]byte, 5)
 		if *p {
