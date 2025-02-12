@@ -4,10 +4,8 @@ import (
 	"archive/zip"
 	"bytes"
 	"crypto/cipher"
-	"crypto/hkdf"
 	"crypto/hmac"
 	"crypto/rand"
-	"crypto/sha3"
 	"flag"
 	"fmt"
 	"hash"
@@ -27,6 +25,8 @@ import (
 	"golang.org/x/crypto/argon2"
 	"golang.org/x/crypto/blake2b"
 	"golang.org/x/crypto/chacha20"
+	"golang.org/x/crypto/hkdf"
+	"golang.org/x/crypto/sha3"
 	"golang.org/x/term"
 )
 
