@@ -1,6 +1,7 @@
 module github.com/Picocrypt/CLI/picocrypt
 
-go 1.23
+go 1.24
+
 require (
 	github.com/Picocrypt/infectious v0.0.0-20240830233326-3a050f65f9ec
 	github.com/Picocrypt/serpent v0.0.0-20240830233833-9ad6ab254fd7
