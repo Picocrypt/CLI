@@ -34,3 +34,6 @@ To decrypt a volume:
 ```
 picocrypt volume.pcv
 ```
+
+## Issues
+Report any issues to the main Picocrypt/Picocrypt repository and prefix the title with 'CLI:'.
