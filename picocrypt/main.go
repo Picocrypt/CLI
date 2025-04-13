@@ -185,13 +185,15 @@ func compress() int {
 		return 1
 	}
 	dir = filepath.ToSlash(dir)
-	file, err = os.CreateTemp("", "picocrypt-cli-v2-*.tmp")
+	file, err = os.CreateTemp("", "picocrypt-cli-v2-*.zip.tmp")
 	if err != nil {
 		fmt.Println("Cannot create temporary file!")
 		return 1
 	}
 	pzip = file.Name()
 	writer = zip.NewWriter(file)
+
+	fmt.Println("Info: creating temporary zip file " + pzip)
 
 	for i, path := range files {
 		stat, err := os.Stat(path)
@@ -344,7 +346,7 @@ func work() int {
 		hkdfSalt = make([]byte, 32)
 		serpentIV = make([]byte, 16)
 		nonce = make([]byte, 24)
-		_, errs[0] = fout.Write(rsEncode(rs5, []byte("v1.46")))
+		_, errs[0] = fout.Write(rsEncode(rs5, []byte("v1.48")))
 		_, errs[1] = fout.Write(rsEncode(rs5, []byte("00000")))
 		flags := make([]byte, 5)
 		if *p {
@@ -684,5 +686,14 @@ func main() {
 			os.Remove(fout.Name())
 		}
 		os.Exit(1)
+	}
+
+	td := os.TempDir()
+	matches, err := filepath.Glob(filepath.Join(td, "picocrypt-cli-v2-*.zip.tmp"))
+	if err != nil {
+		panic(err)
+	}
+	for _, v := range matches {
+		os.Remove(v)
 	}
 }
