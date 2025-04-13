@@ -1,9 +1,11 @@
 module github.com/Picocrypt/CLI/picocrypt
 
-go 1.24
+go 1.24.0
+
+toolchain go1.24.1
 
 require (
-	github.com/Picocrypt/infectious v0.0.0-20240830233326-3a050f65f9ec
+	github.com/Picocrypt/infectious v0.0.0-20250412183341-9f88c6307b39
 	github.com/Picocrypt/serpent v0.0.0-20240830233833-9ad6ab254fd7
 	github.com/schollz/progressbar/v3 v3.18.0
 	golang.org/x/crypto v0.37.0
